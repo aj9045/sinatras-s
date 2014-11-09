@@ -11,6 +11,29 @@
   </head>
 
   <body>
+    <header>
+      <div class="login-toolbar">
+        <% unless current_user %>
+          <a href="/sign_up">Sign Up</a>
+          <a href="/sign_in">Sign In</a>
+        <% else %>
+          <a href="/logout">Log Out</a>
+        <% end %>
+      </div>
+
+    </header>
+
+   <!--  <nav class="main">
+      <a href="/posts">Posts</a>
+      <a href="/comments">Comments</a>
+    </nav> -->
+
+    <div class="welcome">
+      <% if current_user %>
+        <p>Hello! <%= current_user.name %></p>
+      <% end %>
+
+    </div>
     <%= yield %>
   </body>
 </html>
